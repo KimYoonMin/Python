@@ -119,3 +119,149 @@ data.remove(3)
 `list(map(int, input().split()))`
 - 예시) 공백을 기준으로 구분된 데이터의 개수가 많지 않다면, 단순히 다음과 같이 사용\
 `a, b, c = map(int, input().split())`
+### 빠르게 입력 받기
+```python
+import sys
+data = sys.stdin.readline().rstrip()
+print(data)
+```
+### 출력을 위한 전형적인 소스코드
+```python
+a=1
+b=2
+print(a, b) # print의 경우 기본적으로 줄바꿈
+print(7, end=" " ) # end를 써서 줄바꿈을 없앰
+print(8, end=" ")
+
+answer = 7
+print("정답은 " + str(answer) + "입니다.")
+```
+### f-string 예제
+- 파이썬 3.6부터 사용 가능하며, 문자열 앞에 접두사 'f'를 붙여 사용
+-  중괄호 안에 변수명을 기입하여 간단한 문자열과 정수를 함께 넣을 수 있음
+```python
+answer = 7
+print(f"정답은 {answer}입니다.")
+```
+# [조건문]
+### 조건문 간소화
+```python
+score = 85
+result = "Sucess" if score >= 80 else  "Fail"
+```
+### 조건문 내에서의 부등식
+```python
+x = 15
+if 0<x<20:
+ print("x는 0이상 20미만의 수입니다.")
+```
+### 특정리스트에 존재여부
+```python
+if i in list:
+  print("리스트에 존재합니다.")
+else:
+  print("리스트에 존재하지 않습니다.")
+```
+# [함수]
+### 선언
+```python
+def 함수명(매개변수1, 매개변수2):
+  실행코드
+  return 반환값
+```
+### global
+```python
+a = 0
+def func():
+  global a
+  a += 1
+
+for _ in range(10);
+  func()
+
+print(a)
+```
+### 여러개의 반환 값
+```python
+def operator(a, b):
+  add_var = a+b
+  subtract_var = a-b
+  multiply_var = a*b
+  divide_var = a/b
+  return add_var, subtract_var, multiply_var, divide_var
+
+a, b, c, d = operator(7 , 3)
+```
+### 람다 표현식
+- 특정한 기능을 수행하는 함수를 한줄에 작성
+```python
+print((lambda a, b: a + b)(3, 7))
+
+#여러개의 리스트에 적용
+list1 = [1, 2, 3, 4, 5]
+list2 = [6, 7, 8, 9, 10]
+result = map(lambda a, b: a+b, list1, list2)
+print(list(result))
+```
+### 자주 사용되는 내장 함수
+```python
+# sum()
+result = sum([1, 2, 3, 4, 5])
+# min(), max()
+min_result = min(7, 3, 5, 2)
+max_result = max(7, 3, 5, 2)
+# eval()
+result = eval=("(3+5)*7")
+
+# sorted()
+result = sorted([9, 1, 8, 5, 4])
+reverse_result = sorted([9, 1, 8, 5, 4], reverse=True)
+ # sorted() with key
+array = [('홍길동', 35), ('이순신', 75), ('아무개', 50)]
+result = sorted(array, key=lambda x: x[1], reverse=True)
+```
+# [순열과 조합]
+- 순열: 서로다른 n개에서 서로 다른 r개를 선택하여 일렬로 나열
+```python
+from itertools import permutations
+data = ['A', 'B', 'C']
+result = list(permutations(data, 3))
+```
+- 조합 : 서로다른 n개에서 순서에 상관없이 r개를 선택하여 일렬로 나열
+```python
+from itertools import combinations
+data = ['A', 'B', 'C']
+result = list(combinations(data, 3))
+```
+### 중복 순열과 중복 조합
+```python
+from itertools import product
+data = ['A', 'B', 'C']
+result = list(product(data, repeat=2))
+
+from itertools import combinations_with_replacement
+data = ['A', 'B', 'C']
+result = list(combinations_with_replacement(data, 2))
+```
+# [Counter]
+- 리스트와 같은 반복 가능한(iterable) 객체가 주어졌을때 ***내부의 원소가 몇 변씩 등작했는지*** 알려줌
+```python
+from collections import Counter
+counter = Counter(['red','blue','red','green','blue','blue'])
+
+print(counter['blue'])
+print(dict(counter)) #사전 자료형으로 반환
+```
+# [최대 공약수와 최소 공배수]
+- 최대 공약수를 구할때는 math 라이브러리의 gcd() 함수이용
+```python
+import math
+# 최소 공배수(LCM)를 구하는 함수
+def lcm(a, b):
+  return a*b // math.gcd(a, b)
+
+a = 21
+b = 14
+print(math.gcd(21, 14))
+print(lcm(21, 14))
+```
