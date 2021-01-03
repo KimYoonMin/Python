@@ -63,3 +63,47 @@ print(a[2 : 4])
 가능   : print(a[2])
 불가능 : a[2] = 'a'
 ```
+
+# [튜플]
+- 서로다른 성질의 데이터를 묶어 관리할때 사용
+- 일반적으로 리스트와 사용은 비슷하나 메모리효율이 더 높음.
+- 선언 후 변경이 불가능하기 때문에 키값으로 쓰임
+```python
+a = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+print(a[3])
+print(a[1 :  4])
+```
+# [사전자료형]
+- 키(Key)와 값(Value)의 쌍 데이터
+- 변경 불가능한 자료형을 키로 사용
+- 해시 테이블(Hash Table)을 이용하므로 데이터 조회 및 수정에 있어서 O(1)의 시간에 처리할 수 있음
+```python
+data = dict()
+data['사과'] = 'Apple'
+data['바나나'] = 'Banana'
+data['코코넛'] = 'Coconut'
+
+key_list = data.keys()
+value_list = data.values()
+# 각 키에 따른 값을 하나씩 출력
+for key in key_list:
+ print(data[key])
+```
+
+# [집합자료형]
+### 초기화
+```python
+data = set([1,1,2,3,4,4,5])
+data = {1,1,2,3,4,4,5} 
+실행결과 : {1,2,3,4,5}
+```
+### 관련함수
+```python
+data = set([1,2,3])
+# 새로운 원소 추가
+data.add(4)
+# 새로운 원소 여러개 추가
+data.update([5,6])
+# 특정한 값을 갖는 원소 삭제
+data.remove(3)
+```
